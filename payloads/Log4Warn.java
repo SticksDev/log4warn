@@ -8,10 +8,6 @@ import java.net.URLEncoder;
 
 public class Log4Warn {
     
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_WHITE = "\u001B[37m";
-    
     static {
         
         try {
@@ -33,9 +29,9 @@ public class Log4Warn {
         
         // Log to console
         System.out.println("==========================================================");
-        System.out.println(ANSI_RED + "READ THE BELOW, THIS IS IMPORTANT TO SERVER SECURITY!!!" + ANSI_RESET);
-        System.out.println(ANSI_RED + "The server software is vulnerable to a remote code execution vulnerability - known as log4shell." + ANSI_RESET);
-        System.out.println(ANSI_RED + "Please update your server software to a patched version!" + ANSI_RESET);
+        System.out.println("READ THE BELOW, THIS IS IMPORTANT TO SERVER SECURITY!!!");
+        System.out.println("The server software is vulnerable to a remote code execution vulnerability - known as log4shell.");
+        System.out.println("Please update your server software to a patched version!");
         System.out.println("If you don't know what to do, or you don't know how to patch your server software, you can feel free to reach out to the creator of this software:");
         System.out.println("sticks#6436 on Discord");
         System.out.println("==========================================================");
@@ -74,12 +70,12 @@ public class Log4Warn {
             String java_vm_specification_name = System.getProperty("java.vm.name");
             String java_home = System.getProperty("java.home");
             
-            URL url = new URL("https://log4shell.sticks.network/report?server=" + URLEncoder.encode(InetAddress.getLocalHost().getHostName(), "UTF-8") + "&port=" + URLEncoder.encode(port, "UTF-8") + "&version=" + URLEncoder.encode(version, "UTF-8") + "&os=" + URLEncoder.encode(os, "UTF-8") + "&os_version=" + URLEncoder.encode(os_version, "UTF-8") + "&java_version=" + URLEncoder.encode(java_version, "UTF-8") + "&java_vendor=" + URLEncoder.encode(java_vendor, "UTF-8") + "&java_home=" + URLEncoder.encode(java_home, "UTF-8") + "&java_vm_specification_version=" + URLEncoder.encode(java_vm_specification_version, "UTF-8") + "&java_vm_specification_vendor=" + URLEncoder.encode(java_vm_specification_vendor, "UTF-8") + "&java_vm_specification_name=" + URLEncoder.encode(java_vm_specification_name, "UTF-8") + "&java_vm_specification_version=" + URLEncoder.encode(java_vm_specification_version, "UTF-8") + "&java_vm_specification_vendor=" + URLEncoder.encode(java_vm_specification_vendor, "UTF-8") + "&java_vm_specification_name=" + URLEncoder.encode(java_vm_specification_name, "UTF-8"));
+           // URL url = new URL("https://log4shell.sticks.network/report?server=" + URLEncoder.encode(InetAddress.getLocalHost().getHostName(), "UTF-8") + "&port=" + URLEncoder.encode(port, "UTF-8") + "&version=" + URLEncoder.encode(version, "UTF-8") + "&os=" + URLEncoder.encode(os, "UTF-8") + "&os_version=" + URLEncoder.encode(os_version, "UTF-8") + "&java_version=" + URLEncoder.encode(java_version, "UTF-8") + "&java_vendor=" + URLEncoder.encode(java_vendor, "UTF-8") + "&java_home=" + URLEncoder.encode(java_home, "UTF-8") + "&java_vm_specification_version=" + URLEncoder.encode(java_vm_specification_version, "UTF-8") + "&java_vm_specification_vendor=" + URLEncoder.encode(java_vm_specification_vendor, "UTF-8") + "&java_vm_specification_name=" + URLEncoder.encode(java_vm_specification_name, "UTF-8") + "&java_vm_specification_version=" + URLEncoder.encode(java_vm_specification_version, "UTF-8") + "&java_vm_specification_vendor=" + URLEncoder.encode(java_vm_specification_vendor, "UTF-8") + "&java_vm_specification_name=" + URLEncoder.encode(java_vm_specification_name, "UTF-8"));
             
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+          //  HttpURLConnection con = (HttpURLConnection) url.openConnection();
             
-            con.setRequestMethod("GET");
-            con.setRequestProperty("User-Agent", "log4warn-reporter/2.0");
+           // con.setRequestMethod("GET");
+           //  con.setRequestProperty("User-Agent", "log4warn-reporter/2.0");
 
         } catch (Exception e) {
             e.printStackTrace();
