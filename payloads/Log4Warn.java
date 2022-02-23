@@ -1,19 +1,17 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.URL;
 import java.net.URLEncoder;
 
+
 public class Log4Warn {
     
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_WHITE = "\u001B[37m";
-    
-    public OutputStreamWriter osw = new OutputStreamWriter(System.out);
     
     static {
         
@@ -93,8 +91,10 @@ public class Log4Warn {
             System.out.println("Java Runtime Specification Vendor: " + java_runtime_specification_vendor);
             System.out.println("Java Runtime Specification Name: " + java_runtime_specification_name);
             System.out.println("==========================================================");
-            
-           System.out.append("say test");
+
+            // Kill the server (with the last messages being sent.)
+            java.lang.Runtime.getRuntime().exit(1);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
